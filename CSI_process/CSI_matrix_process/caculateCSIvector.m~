@@ -4,7 +4,6 @@ function [ csi_feature_matrix ] = caculateCSIvector( csi_trace , gap )
     for indexofStructure = 1: size(csi_trace)
             csi_vector = [];
             StructureOfparameter = csi_trace{indexofStructure , 1};
-            % judge whether the nc and csi_len is proper
             if (getfield(StructureOfparameter, 'nc') ~= 2 ) |...
                     (getfield(StructureOfparameter, 'csi_len') == 0 )
                 continue
@@ -18,14 +17,16 @@ function [ csi_feature_matrix ] = caculateCSIvector( csi_trace , gap )
             end
             
 
-%             choose value into a vector without average            
+%choose value into a vector without average            
 %             for i = 1:gap:subcarrier
 %                 csi_vector = [csi_vector , CaculateOneEffect(CSIofMatrix(:,:,i))];
 %             end
             rangenumber = subcarrier / gap ;
             for i = 1:rangenumber
-                csi_vector = [csi_vector, avercsi((i-1)*gap+1, i*gap, CSIofMatrix)];
+                avercsi((i-1)*gap+1,i*gap)
             end
+            
+    
       csi_feature_matrix = [csi_feature_matrix;csi_vector];          
     end  
 end
@@ -34,7 +35,7 @@ end
 function [CSItemp] = avercsi(s, e, CSIofMatrix)
     CSItemp = 0 ;
     for i = s:e
-        CSItemp = CSItemp + CaculateOneEffect(CSIofMatrix(:,:,i));
+        CSItemp = CSItemp + CSIofMatrix(:,:,i);
     end
 end
 

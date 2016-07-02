@@ -1,6 +1,7 @@
 clear; clc;
 %% csi_data_label matrix formation
-gap = 25 ;
+gap = 5 ;
+gap = input('please input the gap of subcarriers: ');
 input_cap = 100 ;
 count_loc = 4 ;
 pre_path = './CSI_data/6.29/locations_'

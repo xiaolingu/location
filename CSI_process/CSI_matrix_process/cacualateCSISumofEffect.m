@@ -21,8 +21,5 @@ function [ OneCSIeffect ] = CaculateCSIeffect( CSIofMatrix )
         OneCSIeffect = CaculateOneEffect(CSIofMatrixTemp(:,:,IndexOfCSIofMatrix)) + OneCSIeffect;
     end
     
-function [CSIeffect] = CaculateOneEffect(MinMatrix)
-    MinMatrixTemp = MinMatrix ;
-    MagnitudeMatrix = abs(MinMatrixTemp);
-    CSIeffect = sum(sum((MagnitudeMatrix.^2))) ;
+
 
