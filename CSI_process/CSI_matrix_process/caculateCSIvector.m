@@ -1,7 +1,7 @@
 function [ csi_feature_matrix ] = caculateCSIvector( csi_trace , gap )
 % caculateCSIvector include one csi vector and joint csi vectors
     csi_feature_matrix = [];
-    start_index = 9;
+    start_index = 7;
     for indexofStructure = 1: size(csi_trace)
             csi_vector = [];
             StructureOfparameter = csi_trace{indexofStructure , 1};

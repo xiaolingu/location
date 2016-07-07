@@ -9,7 +9,7 @@ while 1
     end
 end
 count_loc = 4 ;
-pre_path = './CSI_data/7.5/locations_'
+pre_path = './CSI_data/7.7/locations_1_no'
 suffix_path = '.dat';
 csi_data_label = [] ;
 for i=1:count_loc
