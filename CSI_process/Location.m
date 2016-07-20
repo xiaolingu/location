@@ -1,19 +1,14 @@
-function [LocationStruct, LocationPure] =  Location(datapath)
+function [LocationMap, LocationPure] =  Location(datapath)
     LocationPure = csvread(datapath);
-    [row, col] = size(LocationPure)
+    LocationMap = [] ;
+    row = size(LocationPure,1);
+    if(row < 1)
+        return 
+    end
     for i = 1:row
-        for j = 1:col
-            if(j == 1)
-                LocationStruct(i).x = LocationPure(i, j); 
-            end
-            
-            if(j == 2)
-                LocationStruct(i).y = LocationPure(i, j);
-            end
-            
-            if(j == 3)
-                LocationStruct(i).label = LocationPure(i, j);
-            end
-        end
+        keyset = i;
+        keyvalue = struct('x',LocationPure(i,2),'y',LocationPure(i,3));
+        loc_temp = containers.Map(keyset, keyvalue);
+        LocationMap = [LocationMap;loc_temp];
     end
 end

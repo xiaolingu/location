@@ -4,8 +4,7 @@ function [ CSI_data_label ] = Label(input_cap, CSI_data, label )
 %% csi_data is array of input_cap * n    
     length = size(CSI_data);
     if(input_cap > length)
-        CSI_data_label = 0;
-        return
+        error('input cap is larger than length, please input the smaller');
     end
     for x = 1:input_cap
         CSI_data_label(x,1) = label ;
